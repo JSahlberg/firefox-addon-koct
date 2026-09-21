@@ -26,7 +26,7 @@ async function updateBranchesWithoutCSRF() {
     // TODO: Check if it works when logged-in, that could be acceptable
 
     var xhr = new XMLHttpRequest();
-    var url = document.querySelector('#server').value.trim() + "/api/v1/libraries";
+    var url = document.querySelector('#server').value.trim() + "/api/v1/libraries?_per_page=1000";
     xhr.open("GET", url, true);
     xhr.onload = function(e) {
         if (xhr.readyState == 4) {
@@ -73,7 +73,7 @@ async function updateBranchesWithoutCSRF() {
 }
 
 async function updateBranchesWithCSRF() {
-    var url = document.querySelector('#server').value.trim() + "/api/v1/libraries";
+    var url = document.querySelector('#server').value.trim() + "/api/v1/libraries?_per_page=1000";
 
     try {
         let response = await fetch(url);
